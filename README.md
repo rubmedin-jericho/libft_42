@@ -1,6 +1,7 @@
 # libft_42
 This is my first project at the 42 institution, where I have to create my own library in C.
-*** • memset
+> memset
+
 > bzero
 
 > memcpy
@@ -41,7 +42,7 @@ This is my first project at the 42 institution, where I have to create my own li
 
 > strnstr
 
-> atoi ***
+> atoi
 
 The idea is to recreate some basic and useful functions in C. These are just a few, but there are plenty more.
 ## - What do a witch and the weekend have in common? They both fly away.
