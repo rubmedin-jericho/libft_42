@@ -6,7 +6,7 @@
 /*   By: rubmedin <rubmedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 00:14:54 by rubmedin          #+#    #+#             */
-/*   Updated: 2024/12/15 00:46:43 by rubmedin         ###   ########.fr       */
+/*   Updated: 2024/12/15 00:52:09 by rubmedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	j;
 
 	str = malloc(sizeof(char) * ((ft_strlen(s1) + ft_strlen(s2)) + 1));
+	if(!str)
+		return (NULL);
 	i = 0;
 	j = 0;
 	while((s1[j] || s2[j]) && i < (ft_strlen(s1) + ft_strlen(s2)))

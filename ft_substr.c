@@ -6,7 +6,7 @@
 /*   By: rubmedin <rubmedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 23:38:38 by rubmedin          #+#    #+#             */
-/*   Updated: 2024/12/15 00:09:56 by rubmedin         ###   ########.fr       */
+/*   Updated: 2024/12/15 00:52:42 by rubmedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	i;
 
 	str = malloc(sizeof(char) * len);
-	if(str == NULL)
+	if(!str)
 		return (NULL);
 	i = 0;
 	while(s[i] && i < len)
