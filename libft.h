@@ -6,7 +6,7 @@
 /*   By: rubmedin <rubmedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 23:01:47 by rubmedin          #+#    #+#             */
-/*   Updated: 2024/11/22 17:32:43 by rubmedin         ###   ########.fr       */
+/*   Updated: 2024/12/27 11:06:15 by rubmedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	*ft_memccpy(void *dest, const void *src, int c, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n); 
 int	ft_memcmp(const void *s1, const void *s2, size_t n);
-
+void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 
 
 #endif
