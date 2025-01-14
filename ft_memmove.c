@@ -6,59 +6,65 @@
 /*   By: rubmedin <rubmedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 16:24:49 by rubmedin          #+#    #+#             */
-/*   Updated: 2024/11/15 01:06:29 by rubmedin         ###   ########.fr       */
+/*   Updated: 2025/01/10 19:10:39 by rubmedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(char *str)
-{
-	int i;
-
-	i = 0;
-	while(str[i])
-		i++;
-	return (i);
-}
-
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	char	*tmp;
 	char	*src_tmp;
 	char	*dest_tmp;
-	size_t	i;	
+	size_t	lenght;
+	size_t	i;
 
 	src_tmp = (char *)src;
-	dest_tmp = (char *)dest;	
-
-	if(dest_tmp == NULL || (src_tmp == NULL || src_tmp[0] == '\0') || n <= 0)
-		return (NULL);
-	tmp = malloc(sizeof(char) * ft_strlen(src_tmp));
-	ft_memcpy(tmp, src_tmp, ft_strlen(src_tmp));
+	dest_tmp = (char *)dest;
+	lenght = n;
 	i = 0;
-	while(i < n && tmp[i])
+	if (dest_tmp > src_tmp)
 	{
-		dest_tmp[i] = tmp[i];
-		i++;
+		while (lenght-- > 0)
+			dest_tmp[lenght] = src_tmp[lenght];
 	}
-	dest_tmp[i] = '\0';
-	return ((char *)dest);	
+	else
+	{
+		while (i < n)
+		{
+			dest_tmp[i] = src_tmp[i];
+			i++;
+		}
+	}
+	return (dest);
 }
+/*
+#include <stdio.h>
+#include <stdlib.h>
 
 int	main(int argc, char **argv)
 {
-	char	buff_user[50];
-	char	buff_original[50];
+	char	s[];
+	char	s0[];
+	int		i;
 
-	if(argc != 3)
+	s[] = {65, 66, 67, 68, 69, 0, 45};
+	s0[] = {0, 0, 0, 0, 0, 0, 0};
+	//char	str[1024];
+	(void)argc;
+	(void)argv;
+	ft_memmove(s0, s, 7);
+	i = 0;
+	while (i < 7)
 	{
-		printf("Error <few/to many> parameters");
-		return (1); 	
+		printf("s0[%i]: %i\n", i, s0[i]);
+		i++;
 	}
-	ft_memmove(buff_user, argv[1], atoi(argv[2]));
-	memmove(buff_original, argv[1], atoi(argv[2]));
-	printf("buff_user: %s\n", buff_user);
-	printf("buff_original: %s\n", buff_original);
+	if (!memcmp(s, s0, 7))
+		printf("SON IGUALES\n");
+	//(void)argc;
+	//ft_memmove(str, argv[1], atoi(argv[2]));
+	//printf("str: %s\n", str);
 	return (0);
 }
+*/

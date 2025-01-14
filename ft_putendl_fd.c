@@ -6,20 +6,20 @@
 /*   By: rubmedin <rubmedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 11:37:51 by rubmedin          #+#    #+#             */
-/*   Updated: 2024/12/24 12:02:33 by rubmedin         ###   ########.fr       */
+/*   Updated: 2025/01/04 21:16:33 by rubmedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(char	*s, int	fd)
+void	ft_putendl_fd(char *s, int fd)
 {
 	int	i;
-	
+
 	i = 0;
-	while(s[i])	
+	while (s[i])
 	{
-		if(s[i] == '\\' && s[i + 1] == 'n')
+		if (s[i] == '\\' && s[i + 1] == 'n')
 		{
 			write(fd, "\n", 1);
 			i += 2;
@@ -30,5 +30,4 @@ void	ft_putendl_fd(char	*s, int	fd)
 			i++;
 		}
 	}
-
 }

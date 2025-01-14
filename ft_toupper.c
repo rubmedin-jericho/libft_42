@@ -6,14 +6,15 @@
 /*   By: rubmedin <rubmedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 10:41:29 by rubmedin          #+#    #+#             */
-/*   Updated: 2024/12/05 11:15:35 by rubmedin         ###   ########.fr       */
+/*   Updated: 2025/01/04 21:19:18 by rubmedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 int	ft_toupper(int c)
 {
-	if(c >= 97  && c <= 122)
+	if (c >= 97 && c <= 122)
 		c -= 32;
 	return (c);
 }

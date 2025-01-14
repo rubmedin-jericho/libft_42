@@ -6,13 +6,13 @@
 /*   By: rubmedin <rubmedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 15:31:50 by rubmedin          #+#    #+#             */
-/*   Updated: 2024/12/18 12:11:07 by rubmedin         ###   ########.fr       */
+/*   Updated: 2025/01/04 21:15:15 by rubmedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_intlen(int	n)
+int	ft_intlen(int n)
 {
 	int	i;
 
@@ -22,30 +22,30 @@ int	ft_intlen(int	n)
 		i++;
 		n = -n;
 	}
-	while (n != 0 && n > -1)	
+	while (n != 0 && n > -1)
 	{
 		i++;
-		n = n / 10;	
+		n = n / 10;
 	}
 	return (i);
 }
 
-char *ft_special_case(int n)
+char	*ft_special_case(int n)
 {
 	char	*str;
-	
+
 	str = malloc(sizeof(char) * 9);
-	if (n >= 2147483647)	
+	if (n >= 2147483647)
 		str = "2147483647";
 	else if (n <= -2147483648)
 		str = "-2147483648";
 	return (str);
 }
 
-char	*ft_itoa(int	n)
+char	*ft_itoa(int n)
 {
 	char	*str;
-	int	len;
+	int		len;
 
 	len = ft_intlen(n);
 	if (n >= MAX_INT)

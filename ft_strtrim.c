@@ -6,11 +6,12 @@
 /*   By: rubmedin <rubmedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 13:32:16 by rubmedin          #+#    #+#             */
-/*   Updated: 2024/12/15 17:40:41 by rubmedin         ###   ########.fr       */
+/*   Updated: 2025/01/04 21:18:50 by rubmedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 size_t	ft_len_set(char const *s1, char const *s2)
 {
 	size_t	i;
@@ -19,15 +20,15 @@ size_t	ft_len_set(char const *s1, char const *s2)
 
 	i = 0;
 	count = 0;
-	while(s1[i])
+	while (s1[i])
 	{
 		j = 0;
-		while(s2[j])
+		while (s2[j])
 		{
-			if(s1[i] == s2[j])
+			if (s1[i] == s2[j])
 			{
 				count++;
-				break;
+				break ;
 			}
 			j++;
 		}
@@ -41,9 +42,9 @@ int	ft_is_set(char c, char const *set)
 	size_t	i;
 
 	i = 0;
-	while(set[i])	
+	while (set[i])
 	{
-		if(set[i] == c)
+		if (set[i] == c)
 			return (1);
 		i++;
 	}
@@ -61,11 +62,11 @@ char	*ft_strtrim(char const *s1, char const *set)
 	i = 0;
 	len = ft_strlen(s1) - (ft_len_set(s1, set));
 	str = malloc(sizeof(char) * (len + 1));
-	if(!str)
+	if (!str)
 		return (NULL);
-	while(s1[k])
+	while (s1[k])
 	{
-		while(ft_is_set(s1[k], set))
+		while (ft_is_set(s1[k], set))
 			k++;
 		str[i] = s1[k];
 		i++;
