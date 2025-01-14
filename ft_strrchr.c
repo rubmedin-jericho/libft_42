@@ -6,7 +6,7 @@
 /*   By: rubmedin <rubmedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 12:08:31 by rubmedin          #+#    #+#             */
-/*   Updated: 2025/01/13 19:37:48 by rubmedin         ###   ########.fr       */
+/*   Updated: 2025/01/14 18:52:25 by rubmedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,24 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	char	*str;
-	size_t	len;
-	size_t	i;
+	unsigned char	*str;
+	unsigned char	cc;
+	size_t			len;
+	size_t			i;
 
-	str = (char *)s;
-	len = ft_strlen(str);
+	str = (unsigned char *)s;
+	cc = (unsigned char)c;
+	len = ft_strlen((char *)str);
 	i = 0;
 	while (len > i)
 	{
-		if (str[len] == c)
-			return (&str[len]);
+		if (str[len] == cc)
+			return ((char *)&str[len]);
 		len--;
 	}
-	if (str[len] == c && c == '\0')
-		return (&str[len]);
-	else if (str[len] == c)
-		return (&str[len]);
+	if (str[len] == cc && cc == '\0')
+		return ((char *)&str[len]);
+	else if (str[len] == cc)
+		return ((char *)&str[len]);
 	return (NULL);
 }
