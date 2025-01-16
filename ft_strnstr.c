@@ -6,7 +6,7 @@
 /*   By: rubmedin <rubmedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 21:12:05 by rubmedin          #+#    #+#             */
-/*   Updated: 2025/01/13 14:38:08 by rubmedin         ###   ########.fr       */
+/*   Updated: 2025/01/16 21:20:00 by rubmedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,19 @@ size_t	same_str(const char *big, const char *little, size_t *tmp, size_t len)
 
 	i = 0;
 	j = 0;
-	k = 0;
-	(void)tmp;
-	while (big[i] && i < len)
+	k = ft_strlen(little);
+	while (i < len)
 	{
-		if (big[i] == little[k] && j < ft_strlen(little))
+		if (big[i] == little[j] && j < k)
 		{
 			if (big[i] == little[0])
 				*tmp = i;
 			j++;
-			k++;
+			if(big[i] == little[k - 1])
+				return (j);
 		}
 		else
-			k = 0;
+			j = 0;
 		i++;
 	}
 	return (j);
