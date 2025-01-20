@@ -6,32 +6,30 @@
 /*   By: rubmedin <rubmedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 13:03:11 by rubmedin          #+#    #+#             */
-/*   Updated: 2025/01/04 21:14:10 by rubmedin         ###   ########.fr       */
+/*   Updated: 2025/01/18 20:46:28 by rubmedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
-int	symb_repeat(const char *str)
+int	type_of(const char c)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (str[i])
-	{
-		if (ft_isdigit(str[i]) || ft_isalpha(str[i]))
-			i++;
-		else if ((str[i] == '-' || str[i] == '+') && j == 0)
-		{
-			i++;
-			j++;
-		}
-		else
-			return (1);
-	}
+    if(c == 27)
+        return (2);
+    else if (c <= 32)
+    {
+        return (1);
+    }
 	return (0);
+}
+
+void signFill(const char *nptr, int *i, int *sign)
+{
+    if(nptr[*i] == '-' || nptr[*i] == '+')
+        {
+            if(nptr[*i] == '-')
+                *sign = -1;
+            *i += 1;
+        }
 }
 
 int	ft_atoi(const char *nptr)
@@ -40,21 +38,20 @@ int	ft_atoi(const char *nptr)
 	int	nbr;
 	int	i;
 
-	if (symb_repeat(nptr))
-		return (0);
 	sign = 1;
 	nbr = 0;
 	i = 0;
-	if (nptr[0] == '-')
+    while (type_of(nptr[i]) == 1)
+        i++;
+    signFill(nptr, &i, &sign);
+	while (nptr[i] && !ft_isalpha(nptr[i]) && type_of(nptr[i]) == 0)
 	{
-		sign = -1;
-		i++;
-	}
-	while (nptr[i])
-	{
-		if (ft_isalpha(nptr[i]))
-			return (nbr * sign);
-		nbr = (nbr * 10) + (nptr[i] - '0');
+		if (ft_isprint(nptr[i]) && !(ft_isdigit(nptr[i])))
+        {
+            return (nbr * sign);
+        } 
+		if(ft_isdigit(nptr[i]))
+            nbr = (nbr * 10) + (nptr[i] - '0');
 		i++;
 	}
 	return (nbr * sign);
