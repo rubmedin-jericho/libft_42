@@ -6,7 +6,7 @@
 /*   By: rubmedin <rubmedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 23:01:47 by rubmedin          #+#    #+#             */
-/*   Updated: 2025/01/09 13:32:34 by rubmedin         ###   ########.fr       */
+/*   Updated: 2025/01/28 10:38:38 by rubmedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <stddef.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include <string.h>
+# include <bsd/string.h>
 # include <unistd.h>
 
 void	*ft_memset(void *s, int c, size_t n);
