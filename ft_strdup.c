@@ -6,7 +6,7 @@
 /*   By: rubmedin <rubmedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 12:08:38 by rubmedin          #+#    #+#             */
-/*   Updated: 2025/01/04 21:17:30 by rubmedin         ###   ########.fr       */
+/*   Updated: 2025/01/30 11:56:50 by rubmedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,3 @@ char	*ft_strdup(const char *s)
 	str[i] = '\0';
 	return (str);
 }
- 

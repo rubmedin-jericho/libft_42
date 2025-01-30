@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rubmedin <rubmedin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rubmedin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/24 11:37:51 by rubmedin          #+#    #+#             */
-/*   Updated: 2025/01/04 21:16:33 by rubmedin         ###   ########.fr       */
+/*   Created: 2025/01/30 11:54:24 by rubmedin          #+#    #+#             */
+/*   Updated: 2025/01/30 11:54:29 by rubmedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,13 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while (s[i])
+	while (s[i] != '\0')
 	{
-		if (s[i] == '\\' && s[i + 1] == 'n')
-		{
-			write(fd, "\n", 1);
-			i += 2;
-		}
-		else
-		{
-			write(fd, &s[i], 1);
-			i++;
-		}
+		write(fd, &s[i], 1);
+		i++;
 	}
+	write(fd, "\n", 1);
 }

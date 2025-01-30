@@ -6,7 +6,7 @@
 /*   By: rubmedin <rubmedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 23:38:38 by rubmedin          #+#    #+#             */
-/*   Updated: 2025/01/04 21:19:00 by rubmedin         ###   ########.fr       */
+/*   Updated: 2025/01/30 11:57:52 by rubmedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	i;
 	size_t	j;
 
-	if(!s)
+	if (!s)
 		return (NULL);
-	if(ft_strlen(s) < (size_t)start)
+	if (ft_strlen(s) < (size_t)start)
 		return (ft_strdup(""));
 	j = ft_strlen(s + start);
 	if (j < len)
-		len = j;	
-	str = malloc(sizeof(char) *  len + 1);
+		len = j;
+	str = malloc(sizeof(char) * len + 1);
 	if (!str)
 		return (NULL);
 	i = 0;
@@ -37,4 +37,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	str[i] = '\0';
 	return (str);
 }
-

@@ -3,67 +3,70 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rubmedin <rubmedin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rubmedin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/17 15:31:50 by rubmedin          #+#    #+#             */
-/*   Updated: 2025/01/04 21:15:15 by rubmedin         ###   ########.fr       */
+/*   Created: 2025/01/30 11:54:07 by rubmedin          #+#    #+#             */
+/*   Updated: 2025/01/30 11:54:12 by rubmedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_intlen(int n)
+static int	calc_size(int n, int *negative)
 {
-	int	i;
+	int	count;
 
-	i = 0;
-	if (n < 0)
+	count = 0;
+	*negative = n < 0;
+	if (*negative)
 	{
-		i++;
-		n = -n;
+		n *= -1;
+		count++;
 	}
-	while (n != 0 && n > -1)
+	while (n > 0)
 	{
-		i++;
-		n = n / 10;
+		n /= 10;
+		count++;
 	}
-	return (i);
+	return (count);
 }
 
-char	*ft_special_case(int n)
+static void	write_num(char *a, int n, int negative, int size)
 {
-	char	*str;
+	int	i;
+	int	min;
 
-	str = malloc(sizeof(char) * 9);
-	if (n >= 2147483647)
-		str = "2147483647";
-	else if (n <= -2147483648)
-		str = "-2147483648";
-	return (str);
+	i = size - 1;
+	min = 0;
+	if (negative)
+	{
+		a[0] = '-';
+		n *= -1;
+		min = 1;
+	}
+	a[size] = '\0';
+	while (i >= min)
+	{
+		a[i] = (n % 10) + '0';
+		n /= 10;
+		i--;
+	}
 }
 
 char	*ft_itoa(int n)
 {
-	char	*str;
-	int		len;
+	char	*a;
+	int		size;
+	int		negative;
 
-	len = ft_intlen(n);
-	if (n >= MAX_INT)
-		return ("2147483647");
-	else if (n <= MIN_INT)
-		return ("-2147483648");
-	str = malloc(sizeof(char) * (len + 1));
-	if (n < 0)
-	{
-		str[0] = '-';
-		n = -n;
-	}
-	while (n > 10)
-	{
-		str[--len] = (n % 10) + '0';
-		n = n / 10;
-	}
-	if (n < 10 && n > 0)
-		str[--len] = (n % 10) + '0';
-	return (str);
+	if (n == 0)
+		return (ft_strdup("0"));
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	size = calc_size(n, &negative);
+	a = (char *)malloc(size + 1);
+	if (!a)
+		return (0);
+	write_num(a, n, negative, size);
+	return (a);
 }
