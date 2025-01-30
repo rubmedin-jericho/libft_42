@@ -6,12 +6,11 @@
 /*   By: rubmedin <rubmedin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 20:04:41 by rubmedin          #+#    #+#             */
-/*   Updated: 2025/01/04 21:15:01 by rubmedin         ###   ########.fr       */
+/*   Updated: 2025/01/30 12:44:49 by rubmedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <ctype.h>
 
 int	ft_isdigit(int c)
 {

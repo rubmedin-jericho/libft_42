@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rubmedin <rubmedin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rubmedin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/10 23:01:47 by rubmedin          #+#    #+#             */
-/*   Updated: 2025/01/28 10:38:38 by rubmedin         ###   ########.fr       */
+/*   Created: 2025/01/30 12:29:01 by rubmedin          #+#    #+#             */
+/*   Updated: 2025/01/30 13:25:58 by rubmedin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,9 @@
 
 # define SUCCES 0
 # define ERROR 1
-# define MAX_INT 2147483647
-# define MIN_INT -2147483648
 
 # include <stddef.h>
-# include <stdio.h>
 # include <stdlib.h>
-# include <bsd/string.h>
 # include <unistd.h>
 
 void	*ft_memset(void *s, int c, size_t n);
@@ -65,4 +61,5 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
+void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 #endif

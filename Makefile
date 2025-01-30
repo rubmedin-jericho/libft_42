@@ -1,4 +1,3 @@
-.PHONY: all clean fclean re
 CC = gcc
 AR = ar rcs
 FLAGS = -Wall -Werror -Wextra 
@@ -37,6 +36,7 @@ SRCS = ft_isalnum.c \
 	   ft_strtrim.c \
 	   ft_substr.c \
 	   ft_tolower.c \
+	   ft_striteri.c \
 	   ft_toupper.c
 
 OBJS = $(SRCS:.c=.o)
@@ -56,3 +56,5 @@ fclean: clean
 	rm -rf $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re
